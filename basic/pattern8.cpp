@@ -8,6 +8,7 @@ int main()
    cin >> n;
 
    int row = 1;
+
    while (row <= n)
    {
       int col = 1;
