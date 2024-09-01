@@ -9,7 +9,8 @@ int main()
    int row = 1;
    while (row <= n)
    {
-      //  space print karo
+
+      // print space()1st
       int space = n - row;
       while (space)
       {
@@ -17,13 +18,23 @@ int main()
          space = space - 1;
       }
 
-      // star print karlo
-      int col = 1;
-      while (col <= row)
+      // print 2nd triaangle
+      int j = 1;
+      while (j <= row)
       {
-         cout << "*";
-         col = col + 1;
+         cout << j;
+         j = j + 1;
       }
+
+      // print 3nd triaangle
+
+      int start = row - 1;
+      while (start)
+      {
+         cout << start;
+         start = start - 1;
+      }
+
       cout << endl;
       row = row + 1;
    }

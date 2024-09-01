@@ -9,22 +9,22 @@ int main()
    int row = 1;
    while (row <= n)
    {
-      //  space print karo
-      int space = n - row;
+      int space = row - 1;
       while (space)
       {
-         cout << " ";
+         cout << "  ";
          space = space - 1;
       }
 
-      // star print karlo
       int col = 1;
-      while (col <= row)
+      while (col <= n - row + 1)
       {
-         cout << "*";
+         cout << row << " ";
          col = col + 1;
       }
       cout << endl;
       row = row + 1;
    }
+
+   return 0;
 }

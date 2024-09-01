@@ -9,17 +9,9 @@ int main()
    int row = 1;
    while (row <= n)
    {
-      //  space print karo
-      int space = n - row;
-      while (space)
-      {
-         cout << " ";
-         space = space - 1;
-      }
-
       // star print karlo
       int col = 1;
-      while (col <= row)
+      while (col <= n - row + 1)
       {
          cout << "*";
          col = col + 1;
@@ -27,4 +19,6 @@ int main()
       cout << endl;
       row = row + 1;
    }
+
+   return 0;
 }

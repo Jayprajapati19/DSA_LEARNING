@@ -7,24 +7,27 @@ int main()
    cin >> n;
 
    int row = 1;
+   int num = 1; // Start with 1
+
    while (row <= n)
    {
-      //  space print karo
       int space = n - row;
       while (space)
       {
-         cout << " ";
+         cout << "  ";
          space = space - 1;
       }
 
-      // star print karlo
       int col = 1;
       while (col <= row)
       {
-         cout << "*";
+         cout << num << " ";
+         num = num + 1;
          col = col + 1;
       }
       cout << endl;
       row = row + 1;
    }
+
+   return 0;
 }
