@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main()
@@ -14,7 +13,7 @@ int main()
 
       while (col <= n)
       {
-         char ch = 'A' + row - 1;
+         char ch = 'A' + col - 1;
          cout << ch;
          col = col + 1;
       }
@@ -23,12 +22,8 @@ int main()
    }
 }
 
-// AAAAAAAAA
-// BBBBBBBBB
-// CCCCCCCCC
-// DDDDDDDDD
-// EEEEEEEEE
-// FFFFFFFFF
-// GGGGGGGGG
-// HHHHHHHHH
-// IIIIIIIII
+// ABCDE
+// ABCDE
+// ABCDE
+// ABCDE
+// ABCDE

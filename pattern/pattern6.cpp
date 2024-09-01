@@ -11,10 +11,9 @@ int main()
    while (row <= n)
    {
       int col = 1;
-
       while (col <= n)
       {
-         char ch = 'A' + row - 1;
+         char ch = 'A' + col + row - 2;
          cout << ch;
          col = col + 1;
       }
@@ -23,12 +22,7 @@ int main()
    }
 }
 
-// AAAAAAAAA
-// BBBBBBBBB
-// CCCCCCCCC
-// DDDDDDDDD
-// EEEEEEEEE
-// FFFFFFFFF
-// GGGGGGGGG
-// HHHHHHHHH
-// IIIIIIIII
+// ABCD
+// BCDE
+// CDEF
+// DEFG

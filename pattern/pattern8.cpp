@@ -8,27 +8,20 @@ int main()
    cin >> n;
 
    int row = 1;
+   char ch = 'A';
+
    while (row <= n)
    {
       int col = 1;
-
-      while (col <= n)
+      while (col <= row)
       {
-         char ch = 'A' + row - 1;
-         cout << ch;
+         cout << ch << " ";
+         ch = ch + 1;
          col = col + 1;
       }
       cout << endl;
       row = row + 1;
    }
-}
 
-// AAAAAAAAA
-// BBBBBBBBB
-// CCCCCCCCC
-// DDDDDDDDD
-// EEEEEEEEE
-// FFFFFFFFF
-// GGGGGGGGG
-// HHHHHHHHH
-// IIIIIIIII
+   return 0;
+}
