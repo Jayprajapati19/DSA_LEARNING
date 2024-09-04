@@ -8,4 +8,11 @@ int main()
    cout << (17 << 2) << endl;
    cout << (19 << 1) << endl;
    cout << (21 << 2) << endl;
+
+   int i = 7;
+
+   cout << (++i) << endl;
+   cout << (i++) << endl;
+   cout << (i--) << endl;
+   cout << (--i) << endl;
 }
