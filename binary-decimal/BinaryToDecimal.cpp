@@ -24,3 +24,6 @@ int main()
    }
    cout << answer << endl;
 }
+
+// D-> B >/2 divide by 2, &1 ->bit n>>1 -> right shift
+// B-> D >digit power ko add 0->is not add
