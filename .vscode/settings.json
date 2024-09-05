@@ -1,6 +1,7 @@
 {
    "files.associations": {
       "*.java": "java",
-      "bitset": "cpp"
+      "bitset": "cpp",
+      "iostream": "cpp"
    }
 }
