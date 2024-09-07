@@ -30,3 +30,17 @@ int main()
    else
       cout << "Is a Not Prime Number" << endl;
 }
+
+// A/P => ( 3* n + 7)
+// n=3 => 3*3+7 =16
+
+// ++++++++++++++++++++++++++++++++++++++
+
+// int a, b o/p total number of set bits in a and b
+// a=2, b=3
+// 010   011
+// number of 1 = 3
+
+// +++++++++++++++++++++
+
+// fibonacci nth fibonnaci
