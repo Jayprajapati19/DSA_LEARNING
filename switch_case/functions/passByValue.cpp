@@ -9,13 +9,10 @@ void dummy(int n)
 
 int main()
 {
+
    int n;
    cin >> n;
 
    dummy(n);
    cout << "Number is " << n << endl;
-
-   return 0;
 }
-
-// lec 9
