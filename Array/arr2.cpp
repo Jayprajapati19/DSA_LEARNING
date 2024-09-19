@@ -65,17 +65,36 @@ int main()
    // int third[15] = {2, 7};
    // printArray(third, 15);
 
-   int nine[15] = {3, 8};
-   printArray(nine, 15);
+   // int nine[15] = {3, 8};
+   // printArray(nine, 15);
 
-   int fitfthSize = sizeof(nine) / sizeof(int);
+   // int fitfthSize = sizeof(nine) / sizeof(int);
 
-   cout << " Size of Fifth is " << fitfthSize << endl;
+   // cout << " Size of Fifth is " << fitfthSize << endl;
 
-   int ten[17] = {2, 7};
-   printArray(ten, 17);
+   // int ten[17] = {2, 7};
+   // printArray(ten, 17);
 
-   int tenSize = sizeof(ten) / sizeof(int);
+   // int tenSize = sizeof(ten) / sizeof(int);
 
-   cout << " Size of Fifth is " << tenSize << endl;
+   // cout << " Size of Fifth is " << tenSize << endl;
+
+   char ch[5] = {'a', 'b', 'c', 'd', 'e'};
+   cout << ch[3] << endl;
+
+   cout << "printing the array" << endl;
+   // printing the array
+   for (int i = 0; i < 5; i++)
+   {
+      cout << ch[i] << " ";
+   }
+   cout << "printing DONEE" << endl;
+
+   double firstDouble[5];
+   float firstfloat[6];
+   bool firstbool[9];
+
+   cout << endl
+        << "Everything is Fine" << endl
+        << endl;
 }
