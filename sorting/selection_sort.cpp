@@ -18,9 +18,19 @@ void selectionSort(int arr[], int n)
     }
 }
 
+// Space complexity O(1)
+
+// Time Complexity O(n)^2
+
+// Best Case -> already sorted O(n)^2
+
+// worst Case  O(n)^2
+
 int main()
 {
-    int arr[] = {64, 25, 12, 22, 11};
+    // int arr[] = {64, 25, 12, 22, 11};
+    int arr[] = {3, 19, 9, 5, 0, 4, 6, 7};
+
     int n = sizeof(arr) / sizeof(arr[0]);
 
     selectionSort(arr, n);
