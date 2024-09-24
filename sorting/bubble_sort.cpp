@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 void bubbleSort(int arr[], int n)
@@ -35,3 +34,4 @@ int main()
         cout << arr[i] << " ";
     return 0;
 }
+// stable unstable , in - play sort , gfg quiz
