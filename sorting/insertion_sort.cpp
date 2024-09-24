@@ -49,3 +49,10 @@ int main()
     }
     cout << endl;
 }
+
+// Time Complexity: O(n^2)
+
+// space complexity: O(1);
+
+// best case > already sorted array
+// worst case > reverse sorted array
