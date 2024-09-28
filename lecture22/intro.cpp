@@ -1,6 +1,36 @@
 #include <iostream>
-
 using namespace std;
+
+char toLowerCase(char ch)
+{
+    if (ch >= 'a' && ch <= 'z')
+        return ch;
+    else
+    {
+        char temp = ch - 'A' + 'a';
+        return temp;
+    }
+}
+
+bool checkPalindrome(char a[], int n)
+{
+    int s = 0;
+    int e = n - 1;
+
+    while (s <= e)
+    {
+        if (toLowerCase(a[s]) != toLowerCase(a[e]))
+        {
+            return 0;
+        }
+        else
+        {
+            s++;
+            e--;
+        }
+    }
+    return 1;
+}
 
 void reverse(char name[], int n)
 {
@@ -20,65 +50,67 @@ int getLength(char name[])
     {
         count++;
     }
+
     return count;
 }
 
-bool checkPalindrom(char a[], int n)
+char getMaxOccCharacter(string s)
 {
-    int s = 0;
-    int e = n - 1;
 
-    while (s <= e)
+    int arr[26] = {0};
+
+    // create an array of count of characters
+    for (int i = 0; i < s.length(); i++)
     {
-        if (a[s] != a[e])
+        char ch = s[i];
+        // lowercase
+        int number = 0;
+        number = ch - 'a';
+        arr[number]++;
+    }
+
+    // find maximum occ character
+    int maxi = -1, ans = 0;
+    for (int i = 0; i < 26; i++)
+    {
+        if (maxi < arr[i])
         {
-
-            return 0;
-        }
-        else
-        {
-            s++;
-            e--;
+            ans = i;
+            maxi = arr[i];
         }
     }
-    return 1;
-}
 
-char toLowerCase(char ch)
-{
-    if (ch <= 'a' && ch <= 'z')
-    {
-        return ch;
-    }
-    else
-    {
-        char temp = ch - 'A' + 'a';
-        return temp;
-    }
+    return 'a' + ans;
 }
 
 int main()
 {
-    char name[20];
+    /*
+        char name[20];
 
-    cout << "Enter your name: ";
-    cin >> name;
-    // name[2] = '\0';
+        cout << "Enter your name " << endl;
+        cin >> name;
+        //name[2] = '\0';
 
-    cout << "your name is: " << endl;
-    cout << name << endl;
+        cout << "Your name is ";
+        cout << name << endl;
+        int len = getLength(name);
+        cout << " Length: " << len << endl;
 
-    int len = getLength(name);
+        reverse(name, len);
+        cout << "Your name is ";
+        cout << name << endl;
 
-    cout << "Length : " << len << endl;
-    reverse(name, len);
-    cout << "your name is: " << endl;
-    cout << name << endl;
+        cout <<" Palindrome or Not: " << checkPalindrome(name, len) << endl;
 
-    cout << "Palindrom Or Not: " << checkPalindrom(name, len) << endl;
+        cout << " praCHARACTER is " << toLowerCase('b') << endl;
+        cout << " CHARACTER is " << toLowerCase('C') << endl;
+        */
 
-    cout << "CHARCTER is " << toLowerCase('b') << endl;
-    cout << "CHARCTER is " << toLowerCase('D') << endl;
+    string s;
+    cin >> s;
+
+    cout << getMaxOccCharacter(s) << endl;
+
+    return 0;
 }
-
-// cin -> execution ko stop kar deta hai jab space, tab and new line/enter dete hai
