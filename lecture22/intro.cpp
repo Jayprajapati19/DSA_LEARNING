@@ -114,3 +114,5 @@ int main()
 
     return 0;
 }
+
+// cin > ke pass jab space enter tab ate tab wo apna execution stop kar deta hai
