@@ -13,4 +13,9 @@ int main()
     char *c = &ch[0];
     // priting intire string
     cout << c << endl;
+
+    char temp = 'z';
+    char *p = &temp;
+
+    cout << p << endl;
 }
