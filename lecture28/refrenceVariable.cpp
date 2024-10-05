@@ -49,4 +49,10 @@ int main()
     cout << "After  " << n << endl;
 
     func(n);
+
+    // heap vali memory jyada hoti hai stack wali choti hoti hai
+
+    // stack ki memory use karte hia use kahte hai statci memory allocation
+
+    // and heap ki memory use karte hia use kahte hai dynamic memory allocation
 }
