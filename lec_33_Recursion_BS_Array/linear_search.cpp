@@ -2,8 +2,20 @@
 
 using namespace std;
 
+void print(int arr[], int n)
+{
+    cout << "Size of array is: " << n << endl;
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 bool linearSearch(int arr[], int size, int k)
 {
+    print(arr, size);
+
     // base case
     if (size == 0)
     {
