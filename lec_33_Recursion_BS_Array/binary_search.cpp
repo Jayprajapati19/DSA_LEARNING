@@ -23,6 +23,7 @@ bool binarySearch(int *arr, int s, int e, int k)
     }
 
     int mid = s + (e - s) / 2;
+    cout << "value of arr mid is: " << arr[mid] << endl;
 
     // element found
     if (arr[mid] == k)
@@ -46,7 +47,6 @@ int main()
 
     int arr[6] = {2, 3, 4, 6, 8, 9};
     int size = 6;
-
     int key = 4;
 
     cout << "Present Or Not " << binarySearch(arr, 0, 5, key) << endl;
