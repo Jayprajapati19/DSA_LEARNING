@@ -14,6 +14,8 @@ int getSum(int *arr, int size)
         return arr[0];
     }
 
+    // recursive relation
+
     int remainingPart = getSum(arr + 1, size - 1);
     int sum = arr[0] + remainingPart;
 
