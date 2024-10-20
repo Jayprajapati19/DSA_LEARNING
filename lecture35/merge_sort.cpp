@@ -62,6 +62,7 @@ void mergeSort(int *arr, int s, int e)
     int mid = (s + e) / 2;
 
     // left part sort karna hai
+
     mergeSort(arr, s, mid);
 
     // right part sort karna hai
