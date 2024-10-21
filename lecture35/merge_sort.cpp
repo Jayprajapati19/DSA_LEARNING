@@ -1,82 +1,108 @@
 #include <iostream>
-
 using namespace std;
 
-void merge(int *arr, int s, int e)
+int merge(int *arr, int start, int end)
 {
-    int mid = (s + e) / 2;
+    int mid = start + (end - start) / 2;
+    int ans = 0;
 
-    int len1 = mid - s + 1;
-    int len2 = e - mid;
+    int len1 = mid - start + 1; // length of first array
+    int len2 = end - mid;       // length of the second array
 
-    int *first = new int[len1];
-    int *second = new int[len2];
+    int *first = new int[len1];  // dynamically creating first array
+    int *second = new int[len2]; // dynamically creating second array
 
-    // copy values
-    int minArrayIndex = s;
+    // copying values in arrays
+    int mainArrayIndex = start;
+
     for (int i = 0; i < len1; i++)
     {
-        first[i] = arr[minArrayIndex++];
+        first[i] = arr[mainArrayIndex++];
     }
 
-    int k = mid + 1;
+    mainArrayIndex = mid + 1;
     for (int i = 0; i < len2; i++)
     {
-        first[i] = arr[minArrayIndex++];
+        second[i] = arr[mainArrayIndex++];
     }
 
-    // merge 2 sorted arrays
+    // merging two arrays
     int index1 = 0;
     int index2 = 0;
-    int minArrayIndex = 5;
+    mainArrayIndex = start;
 
     while (index1 < len1 && index2 < len2)
     {
         if (first[index1] < second[index2])
         {
-            arr[minArrayIndex++] = first[index1++];
+            arr[mainArrayIndex++] = first[index1++];
         }
         else
         {
-            arr[minArrayIndex++] = second[index2++];
+            arr[mainArrayIndex++] = second[index2++];
+            ans += len1 - index1;
         }
     }
 
     while (index1 < len1)
     {
-        arr[minArrayIndex++] = first[index1++];
+        arr[mainArrayIndex++] = first[index1++];
     }
 
-    while (index2 > len2)
+    while (index2 < len2)
     {
-        arr[minArrayIndex++] = second[index2++];
+        arr[mainArrayIndex++] = second[index2++];
     }
+
+    delete[] first;
+    delete[] second;
+
+    return ans;
 }
 
-void mergeSort(int *arr, int s, int e)
+int mergeSort(int *arr, int start, int end)
 {
-    // base case
-    if (s > e)
-        return;
+    if (start >= end)
+    {
+        return 0;
+    }
 
-    int mid = (s + e) / 2;
+    int mid = start + (end - start) / 2;
 
-    // left part sort karna hai
+    // sorting left part of the array
+    int inv = mergeSort(arr, start, mid);
 
-    mergeSort(arr, s, mid);
+    // sorting right part of the array
+    inv += mergeSort(arr, mid + 1, end);
 
-    // right part sort karna hai
-    mergeSort(arr, mid + 1, e);
+    // merging two sorted arrays
+    inv += merge(arr, start, end);
 
-    // merge
-
-    merge(arr, s, e);
+    return inv;
 }
 
 int main()
 {
-    int arr[5] = {2, 5, 1, 6, 9};
-    int n = 5;
 
-    mergeSort(arr, 0, n - 1);
+    int arr[10] = {12, 43, 11, 99, 45, 22, 67, 54, 89, 48};
+    int n = 10;
+
+    cout << "Before sorting : ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    int inv_count = mergeSort(arr, 0, n - 1);
+    cout << "Inversion Count : " << inv_count << endl;
+
+    cout << "After sorting : ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
 }
