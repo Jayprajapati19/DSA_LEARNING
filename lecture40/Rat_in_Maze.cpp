@@ -100,7 +100,7 @@ int main()
         for (string path : result) // Sab paths ko print karo
         {
             cout << path << endl;
-        }
+                }
     }
 
     return 0;
