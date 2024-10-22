@@ -8,74 +8,75 @@ using namespace std;
 class Solution
 {
 private:
-    // Function to check if a move is safe
+    // Ye function check karta hai ki move safe hai ya nahi
     bool isSafe(int x, int y, int n, vector<vector<int>> &visited, vector<vector<int>> &maze)
     {
+        // Agar x aur y maze ke andar hain, visited nahi hai, aur maze me path hai toh safe hai
         if (x >= 0 && x < n && y >= 0 && y < n && visited[x][y] == 0 && maze[x][y] == 1)
         {
-            return true;
+            return true; // Safe hai
         }
-        return false;
+        return false; // Safe nahi hai
     }
 
-    // Recursive function to solve the maze
+    // Ye function maze ko recursively solve karta hai
     void solveMaze(vector<vector<int>> &maze, int n, vector<string> &ans, int x, int y, vector<vector<int>> &visited, string path)
     {
-        // Base case: If destination is reached
+        // Base case: Agar destination (n-1, n-1) par pahunch gaye
         if (x == n - 1 && y == n - 1)
         {
-            ans.push_back(path);
+            ans.push_back(path); // Path ko ans list me add karo
             return;
         }
 
-        // Mark the current cell as visited
+        // Current cell ko visited mark kar do
         visited[x][y] = 1;
 
-        // Move Down
+        // Niche move karo (Down)
         if (isSafe(x + 1, y, n, visited, maze))
         {
-            solveMaze(maze, n, ans, x + 1, y, visited, path + 'D');
+            solveMaze(maze, n, ans, x + 1, y, visited, path + 'D'); // Path me 'D' add karo
         }
 
-        // Move Left
+        // Left move karo
         if (isSafe(x, y - 1, n, visited, maze))
         {
-            solveMaze(maze, n, ans, x, y - 1, visited, path + 'L');
+            solveMaze(maze, n, ans, x, y - 1, visited, path + 'L'); // Path me 'L' add karo
         }
 
-        // Move Right
+        // Right move karo
         if (isSafe(x, y + 1, n, visited, maze))
         {
-            solveMaze(maze, n, ans, x, y + 1, visited, path + 'R');
+            solveMaze(maze, n, ans, x, y + 1, visited, path + 'R'); // Path me 'R' add karo
         }
 
-        // Move Up
+        // Upar move karo (Up)
         if (isSafe(x - 1, y, n, visited, maze))
         {
-            solveMaze(maze, n, ans, x - 1, y, visited, path + 'U');
+            solveMaze(maze, n, ans, x - 1, y, visited, path + 'U'); // Path me 'U' add karo
         }
 
-        // Backtrack: Unmark the current cell as visited
+        // Backtrack: Jo cell visited mark kiya tha usko wapas 0 kar do
         visited[x][y] = 0;
     }
 
 public:
-    // Function to find all possible paths in the maze
+    // Ye function sab possible paths find karega maze me
     vector<string> findPath(vector<vector<int>> &maze, int n)
     {
-        vector<string> ans;
-        if (maze[0][0] == 0 || maze[n - 1][n - 1] == 0) // If start or end is blocked
+        vector<string> ans;                             // Result store karne ke liye
+        if (maze[0][0] == 0 || maze[n - 1][n - 1] == 0) // Agar start ya end block ho toh
         {
-            return ans;
+            return ans; // Koi path nahi hai
         }
 
-        vector<vector<int>> visited(n, vector<int>(n, 0)); // Initialize visited array
-        string path = "";                                  // String to store the path
+        vector<vector<int>> visited(n, vector<int>(n, 0)); // Visited array initialize karo
+        string path = "";                                  // Path ko empty string se shuru karo
 
-        solveMaze(maze, n, ans, 0, 0, visited, path); // Start solving the maze
+        solveMaze(maze, n, ans, 0, 0, visited, path); // Maze ko solve karna shuru karo
 
-        sort(ans.begin(), ans.end()); // Sort the paths
-        return ans;
+        sort(ans.begin(), ans.end()); // Paths ko sort karo
+        return ans;                   // Sorted paths return karo
     }
 };
 
@@ -86,17 +87,17 @@ int main()
     vector<vector<int>> maze = {{1, 0, 0, 0},
                                 {1, 1, 0, 1},
                                 {0, 1, 0, 0},
-                                {1, 1, 1, 1}};
+                                {1, 1, 1, 1}}; // Maze define kiya
 
-    vector<string> result = sol.findPath(maze, n);
+    vector<string> result = sol.findPath(maze, n); // Solution find karo
 
-    if (result.empty())
+    if (result.empty()) // Agar koi path nahi mila
     {
-        cout << "No path found" << endl;
+        cout << "No path found" << endl; // Print karo ki koi path nahi mila
     }
     else
     {
-        for (string path : result)
+        for (string path : result) // Sab paths ko print karo
         {
             cout << path << endl;
         }
