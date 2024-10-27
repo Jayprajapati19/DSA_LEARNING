@@ -10,16 +10,37 @@ private:
     int health;
 
 public:
+    char *name;
     char level;
 
     Hero()
     {
-        cout << "Constructor Called" << endl;
+        cout << "Defult Constructor Called" << endl;
+        name = new char[100];
+    }
+
+    // ParameterRised Constructor
+    Hero(int health)
+    {
+        cout << "this ->" << this << endl;
+        this->health = health;
+    }
+
+    // copy constructor
+    Hero(Hero &temp)
+    {
+        this->health = temp.health;
+        this->level = temp.level;
     }
 
     void print()
     {
-        cout << level << endl;
+        cout << endl;
+        cout << "Name: " << this->name << " ,";
+
+        cout << "health: " << this->health << " ,";
+        cout << "level: " << this->level << " ,";
+        cout << endl;
     }
 
     int gethealth()
@@ -40,34 +61,57 @@ public:
     void setlevel(int ch)
     {
         level = ch;
+    };
+
+    void setName(char name[])
+    {
+        strcpy(this->name, name);
     }
 };
 
 int main()
 {
 
-    // Object created statically
+    Hero hero1;
+    hero1.sethealth(12);
+    hero1.setlevel('D');
+    char name[7] = "JayPra";
+    hero1.setName(name);
 
-    Hero jayy;
+    hero1.print();
 
-        /*
+    // Hero Jadi(70, 'C');
 
-    // creation of object from hero class
-    Hero jay;
+    // Hero diyu(jadi);
 
-    cout << "size of jay: " << sizeof(jay) << endl;
+    // // Object created statically
+    // Hero jay(10);
 
-    cout << "Jay Health is " << jay.gethealth() << endl;
-    // jay.health = 19;
+    // cout << "Address of Jay" << &jay << endl;
 
-    // use setter
-    jay.sethealth(19);
-    jay.level = 'D';
+    // jay.gethealth();
 
-    cout << "Health is: " << jay.gethealth() << endl;
-    cout << "Level is: " << jay.level << endl;
+    // // Dynamically
+    // Hero *h = new Hero();
 
-    */
+    /*
+
+// creation of object from hero class
+Hero jay;
+
+cout << "size of jay: " << sizeof(jay) << endl;
+
+cout << "Jay Health is " << jay.gethealth() << endl;
+// jay.health = 19;
+
+// use setter
+jay.sethealth(19);
+jay.level = 'D';
+
+cout << "Health is: " << jay.gethealth() << endl;
+cout << "Level is: " << jay.level << endl;
+
+*/
 
     /*
     // static allocation
