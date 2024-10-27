@@ -37,6 +37,3 @@ T.C ->> O(2n) -> Exponential
 (maximum space required as any instant of time )  function of input
 
 Factorial ke lia Space Complexity -> O(n)
- 
-
-<!-- lec 42 -->
