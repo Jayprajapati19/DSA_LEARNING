@@ -4,8 +4,10 @@ using namespace std;
 
 class Human
 {
-public:
+private:
     int height;
+
+public:
     int weight;
 
 private:
@@ -24,7 +26,7 @@ public:
 };
 
 // inherit
-class Male : private Human
+class Male : public Human
 {
 public:
     string color;
