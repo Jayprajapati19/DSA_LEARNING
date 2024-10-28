@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/DSA_placement/DSA_Placement/lecture28",
-      "program": "d:/DSA_placement/DSA_Placement/lecture28/build/Debug/outDebug",
+      "cwd": "d:/DSA_placement/DSA_Placement/OOPS_part1",
+      "program": "d:/DSA_placement/DSA_Placement/OOPS_part1/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
