@@ -11,7 +11,7 @@ public:
         cout << "func 1" << endl;
     }
 };
-;
+
 class D
 {
 public:
