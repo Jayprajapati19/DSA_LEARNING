@@ -1,6 +1,8 @@
 #include <iostream>
 using namespace std;
 
+// Hybrid implementation of Inheritance
+
 class A
 {
 public:
