@@ -1,3 +1,7 @@
+// tail ending node ke aage new node add karenga
+// tail pointer of node type
+// last node darshayenga
+
 #include <iostream>
 
 using namespace std;
@@ -18,7 +22,7 @@ public:
     }
 };
 
-// inserting new node at head or starting Of SLL
+// inserting new node at head or starting
 void InsertAtHead(Node *&head, int d)
 
 // & yaha pe refrence isliye lia hai ki me nahi chahta ki an nayi copy bane waha , changes in original LL
@@ -28,7 +32,16 @@ void InsertAtHead(Node *&head, int d)
     Node *temp = new Node(d);
     temp->next = head;
     head = temp;
-}
+};
+
+// inserting new node at tail or ending of SLL
+
+void InsertAtTail(Node *&tail, int d)
+{
+    Node *temp = new Node(d);
+    tail->next = temp;
+    tail = temp;
+};
 
 // priting the linked list
 void print(Node *&head)
@@ -51,17 +64,17 @@ int main()
 
     // head point to node1
     Node *head = node1;
-
-    print(head);
-    // Insert at head
-    InsertAtHead(head, 12);
+    Node *tail = node1;
     print(head);
 
-    InsertAtHead(head, 15);
+    // Insert at Tail
+    InsertAtTail(tail, 12);
+
+    print(head);
+
+    InsertAtTail(tail, 15);
 
     print(head);
 
     return 0;
 }
-
-// 30min in lec 44
