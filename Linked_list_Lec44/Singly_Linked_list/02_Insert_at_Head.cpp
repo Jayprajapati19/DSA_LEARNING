@@ -63,5 +63,3 @@ int main()
 
     return 0;
 }
-
-// 30min in lec 44
