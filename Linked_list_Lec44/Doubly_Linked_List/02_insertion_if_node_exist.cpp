@@ -46,6 +46,7 @@ int getLength(Node *head)
     return len;
 };
 
+// Insert at first
 void InsertAtHead(Node *&head, int d)
 {
     Node *temp = new Node(d);
@@ -54,12 +55,49 @@ void InsertAtHead(Node *&head, int d)
     head = temp;
 };
 
+// insert at last
 void InsertAtTail(Node *&tail, int d)
 {
     Node *temp = new Node(d);
     tail->next = temp;
     temp->prev = tail;
     tail = temp;
+};
+
+// insert at any position
+void InsertAtPosition(Node *&tail, Node *&head, int d, int position)
+{
+
+    // Insert at start
+    if (position == 1)
+    {
+        InsertAtHead(head, d);
+        return;
+    }
+
+    // insert at Middle in SLL
+    Node *temp = head;
+    int cnt = 1;
+
+    while (cnt < position - 1)
+    {
+        temp = temp->next;
+        cnt++;
+    }
+
+    // insert at last position in SLL
+    if (temp->next == NULL)
+    {
+        InsertAtTail(tail, d);
+        return;
+    };
+
+    // Creating a node for d Middle
+    Node *nodeToInsert = new Node(d);
+    nodeToInsert->next = temp->next;
+    temp->next->prev = nodeToInsert;
+    temp->next = nodeToInsert;
+    nodeToInsert->prev = temp;
 };
 
 int main()
@@ -85,6 +123,10 @@ int main()
     // Insert at tail/Last in Doubly Linked list
     InsertAtTail(tail, 25);
     print(head);
+
+    // insert at position
+
+    InsertAtPosition(tail, head, 2, 100);
 
     return 0;
 };
