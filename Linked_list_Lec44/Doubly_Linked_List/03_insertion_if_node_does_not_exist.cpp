@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 class Node
@@ -22,7 +21,6 @@ public:
 void print(Node *head)
 {
     Node *temp = head;
-
     while (temp != NULL)
     {
         cout << temp->data << " ";
@@ -31,37 +29,40 @@ void print(Node *head)
     cout << endl;
 }
 
-// Gives length of Linked List
-int getLength(Node *head)
-{
-    int len = 0;
-    Node *temp = head;
-
-    while (temp != NULL)
-    {
-        len++;
-        temp = temp->next;
-    }
-    return len;
-}
-
 // Insert at the head
-void InsertAtHead(Node *&head, int d)
+void InsertAtHead(Node *&tail, Node *&head, int d)
 {
-    Node *temp = new Node(d);
-    temp->next = head;
-    if (head != NULL)
+    if (head == NULL)
+    {
+        Node *temp = new Node(d);
+        head = temp;
+        tail = temp;
+    }
+    else
+    {
+        Node *temp = new Node(d);
+        temp->next = head;
         head->prev = temp;
-    head = temp;
+        head = temp;
+    }
 }
 
 // Insert at the tail
-void InsertAtTail(Node *&tail, int d)
+void InsertAtTail(Node *&head, Node *&tail, int d)
 {
-    Node *temp = new Node(d);
-    tail->next = temp;
-    temp->prev = tail;
-    tail = temp;
+    if (tail == NULL)
+    {
+        Node *temp = new Node(d);
+        tail = temp;
+        head = temp;
+    }
+    else
+    {
+        Node *temp = new Node(d);
+        tail->next = temp;
+        temp->prev = tail;
+        tail = temp;
+    }
 }
 
 // Insert at any position
@@ -70,11 +71,10 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
     // Insert at start
     if (position == 1)
     {
-        InsertAtHead(head, d);
+        InsertAtHead(tail, head, d);
         return;
     }
 
-    // Insert at given position
     Node *temp = head;
     int cnt = 1;
     while (cnt < position - 1 && temp->next != NULL)
@@ -86,7 +86,7 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
     // Insert at last position if reached end of list
     if (temp->next == NULL)
     {
-        InsertAtTail(tail, d);
+        InsertAtTail(head, tail, d);
         return;
     }
 
@@ -100,27 +100,26 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
 
 int main()
 {
-    Node *node1 = new Node(10);
-    Node *head = node1;
-    Node *tail = node1;
+    Node *head = NULL;
+    Node *tail = NULL;
 
     print(head);
 
     // Insert at head
-    InsertAtHead(head, 11);
+    InsertAtHead(tail, head, 11);
     print(head);
 
-    InsertAtHead(head, 19);
+    InsertAtHead(tail, head, 19);
     print(head);
 
-    InsertAtHead(head, 14);
+    InsertAtHead(tail, head, 14);
     print(head);
 
     // Insert at tail
-    InsertAtTail(tail, 25);
+    InsertAtTail(head, tail, 25);
     print(head);
 
-    InsertAtTail(tail, 26);
+    InsertAtTail(head, tail, 26);
     print(head);
 
     // Insert at position
