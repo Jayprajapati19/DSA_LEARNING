@@ -98,6 +98,49 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
     nodeToInsert->prev = temp;
 }
 
+void deleteNode(Node *&head, Node *&tail, int position)
+{
+
+    // deleting start/first node in SLL
+    if (position == 1)
+    {
+        Node *temp = head;
+        head = head->next;
+
+        // memory free start node
+        temp->next = NULL;
+        delete temp;
+    }
+    else
+    {
+        // deleting any middle node or last node in SLL
+        Node *curr = head;
+        Node *prev = NULL;
+
+        int cnt = 1;
+        while (cnt < position)
+        {
+            prev = curr;
+            curr = curr->next;
+            cnt++;
+        }
+        prev->next = curr->next;
+        curr->next = NULL;
+        delete curr;
+
+        // handling tail value
+        if (curr->next == NULL)
+        {
+            tail = prev->next;
+        }
+
+        if (prev->next == NULL)
+        {
+            tail = prev;
+        }
+    }
+};
+
 int main()
 {
     Node *head = NULL;

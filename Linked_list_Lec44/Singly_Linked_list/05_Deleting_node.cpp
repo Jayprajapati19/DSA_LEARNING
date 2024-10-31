@@ -103,9 +103,7 @@ void InsertAtPosition(Node *&tail, Node *&head, int position, int d)
 };
 
 void deleteNode(Node *&head, Node *&tail, int position)
-
 {
-
     // deleting start/first node in SLL
     if (position == 1)
     {
