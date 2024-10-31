@@ -54,16 +54,20 @@ void InsertAtHead(Node *&head, int d)
     head = temp;
 };
 
-void InsertAtTail()
+void InsertAtTail(Node *&tail, int d)
 {
-}
+    Node *temp = new Node(d);
+    tail->next = temp;
+    temp->prev = tail;
+    tail = temp;
+};
 
 int main()
 {
 
     Node *node1 = new Node(10);
-
     Node *head = node1;
+    Node *tail = node1;
 
     print(head);
     // cout << "Doubly LL Length is: " << getLength(head) << endl;
@@ -76,6 +80,10 @@ int main()
     print(head);
 
     InsertAtHead(head, 14);
+    print(head);
+
+    // Insert at tail/Last in Doubly Linked list
+    InsertAtTail(tail, 25);
     print(head);
 
     return 0;
