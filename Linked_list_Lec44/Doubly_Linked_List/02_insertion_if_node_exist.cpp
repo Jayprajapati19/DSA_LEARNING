@@ -25,7 +25,7 @@ void print(Node *head)
 
     while (temp != NULL)
     {
-        cout << temp->data;
+        cout << temp->data << " ";
         temp = temp->next;
     }
     cout << endl;
@@ -46,9 +46,17 @@ int getLength(Node *head)
     return len;
 };
 
-void InsertAtHead(Node *&head, int d) {
-
+void InsertAtHead(Node *&head, int d)
+{
+    Node *temp = new Node(d);
+    temp->next = head;
+    head->prev = temp;
+    head = temp;
 };
+
+void InsertAtTail()
+{
+}
 
 int main()
 {
@@ -58,12 +66,17 @@ int main()
     Node *head = node1;
 
     print(head);
-    cout << "Doubly LL Length is: " << getLength(head) << endl;
+    // cout << "Doubly LL Length is: " << getLength(head) << endl;
 
+    // insert at head in Doubly LL
     InsertAtHead(head, 11);
+    print(head);
+
+    InsertAtHead(head, 19);
+    print(head);
+
+    InsertAtHead(head, 14);
     print(head);
 
     return 0;
 };
-
-// 1:6 lec 44
