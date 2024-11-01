@@ -20,9 +20,12 @@ public:
     ~Node()
     {
         int val = this->data;
-
-        cout
-            << "int value  "
+        if (next != NULL)
+        {
+            delete next;
+            next = NULL;
+        }
+        cout << "Memory Free for node with data " << val << endl;
     };
 };
 
@@ -110,7 +113,7 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
 void deleteNode(Node *&head, Node *&tail, int position)
 {
 
-    // deleting start/first node in SLL
+    // deleting start/first node in DLL
     if (position == 1)
     {
         Node *temp = head;
@@ -121,7 +124,7 @@ void deleteNode(Node *&head, Node *&tail, int position)
     }
     else
     {
-        // deleting any middle node or last node in SLL
+        // deleting any middle node or last node in DLL
         Node *curr = head;
         Node *prev = NULL;
 
@@ -131,9 +134,10 @@ void deleteNode(Node *&head, Node *&tail, int position)
             prev = curr;
             curr = curr->next;
             cnt++;
-        }
-        prev->next = curr->next;
-        curr->next = NULL;
+        };
+
+        curr->prev = NULL;
+
         delete curr;
 
         // handling tail value
