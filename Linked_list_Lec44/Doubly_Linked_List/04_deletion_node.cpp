@@ -15,6 +15,15 @@ public:
         this->prev = NULL;
         this->next = NULL;
     }
+
+    // Destructor
+    ~Node()
+    {
+        int val = this->data;
+
+        cout
+            << "int value  "
+    };
 };
 
 // Traversing a Doubly Linked List
@@ -105,9 +114,8 @@ void deleteNode(Node *&head, Node *&tail, int position)
     if (position == 1)
     {
         Node *temp = head;
-        head = head->next;
-
-        // memory free start node
+        temp->next->prev = NULL;
+        head = temp->next;
         temp->next = NULL;
         delete temp;
     }
