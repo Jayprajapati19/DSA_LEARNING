@@ -110,7 +110,8 @@ void insertAtPosition(Node *&head, Node *&tail, int position, int d)
     nodeToInsert->prev = temp;
 }
 
-void deleteNode(Node *&head, Node *&tail, int position)
+void deleteNode(int position, Node *&head, Node *&tail)
+
 {
 
     // deleting start/first node in DLL
@@ -137,7 +138,8 @@ void deleteNode(Node *&head, Node *&tail, int position)
         };
 
         curr->prev = NULL;
-
+        prev->next = curr->next;
+        curr->next = NULL;
         delete curr;
 
         // handling tail value
@@ -150,7 +152,7 @@ void deleteNode(Node *&head, Node *&tail, int position)
         {
             tail = prev;
         }
-    }
+    };
 };
 
 int main()
@@ -184,8 +186,38 @@ int main()
     insertAtPosition(head, tail, 1, 104);
     print(head);
 
+    cout << endl;
+
     insertAtPosition(head, tail, 8, 102);
     print(head);
+    cout << "head: " << head->data << endl;
+    cout << "tail: " << tail->data << endl;
+
+    cout << endl;
+
+    // delete at first in DLL
+
+    deleteNode(1, head, tail);
+    print(head);
+    cout << endl;
+    cout << "head: " << head->data << endl;
+    cout << "tail: " << tail->data << endl;
+
+    // delete at middle in DLL
+    cout << endl;
+    deleteNode(4, head, tail);
+    print(head);
+    cout << endl;
+    cout << "head: " << head->data << endl;
+    cout << "tail: " << tail->data << endl;
+
+    // delete at last in DLL
+    cout << endl;
+    deleteNode(6, head, tail);
+    print(head);
+    cout << endl;
+    cout << "head: " << head->data << endl;
+    cout << "tail: " << tail->data << endl;
 
     return 0;
 }
