@@ -14,31 +14,30 @@ public:
     }
 };
 
-// Time Complexity -> O(n);
-// Space Complexity -> O(1);
+// Recursive Approach for reverse Linked list
 
-// Iterative solution
-
-Node *reverse_linkedList(Node *head)
+void reverse(Node *&head, Node *curr, Node *prev)
 {
-    if (head == NULL || head->next == NULL)
+    // base case
+    if (curr == NULL)
     {
-        return head;
-    }
+        head = prev;
+        return;
+    };
 
-    Node *prev = NULL;
+    // recursive call
+    Node *forward = curr->next;
+    reverse(head, forward, curr);
+    curr->next = prev;
+};
+
+Node *reverseLinkList(Node *head)
+{
     Node *curr = head;
-    Node *forward = NULL;
-
-    while (curr != NULL)
-    {
-        forward = curr->next;
-        curr->next = prev;
-        prev = curr;
-        curr = forward;
-    }
-    return prev;
-}
+    Node *prev = NULL;
+    reverse(head, curr, prev);
+    return head;
+};
 
 void print_linkedList(Node *head)
 {
@@ -53,21 +52,22 @@ void print_linkedList(Node *head)
 
 int main()
 {
+
     // Creating a linked list with nodes 1 -> 2 -> 3 -> 4 -> 5
-    Node *head = new Node(1);
-    head->next = new Node(2);
-    head->next->next = new Node(3);
-    head->next->next->next = new Node(4);
-    head->next->next->next->next = new Node(5);
+    Node *head = new Node(11);
+    head->next = new Node(12);
+    head->next->next = new Node(13);
+    head->next->next->next = new Node(14);
+    head->next->next->next->next = new Node(15);
 
     cout << "Original Linked List: ";
     print_linkedList(head);
 
     // Reversing the linked list
-    head = reverse_linkedList(head);
+    head = reverseLinkList(head);
 
     cout << "Reversed Linked List: ";
     print_linkedList(head);
 
     return 0;
-}
+};
