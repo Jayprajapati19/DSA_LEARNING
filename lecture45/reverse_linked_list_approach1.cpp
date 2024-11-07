@@ -14,6 +14,10 @@ public:
     }
 };
 
+// Time Complexity -> O(n);
+
+// Iterative solution
+
 Node *reverse_linkedList(Node *head)
 {
     if (head == NULL || head->next == NULL)
