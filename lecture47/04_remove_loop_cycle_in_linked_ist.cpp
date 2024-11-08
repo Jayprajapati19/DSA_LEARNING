@@ -141,6 +141,8 @@ Node *getStartingNode(Node *head)
 
 void removeLoop(Node *head)
 {
+    if (head == NULL)
+        return;
 
     Node *startingNode = getStartingNode(head);
 
@@ -153,7 +155,7 @@ void removeLoop(Node *head)
 
     temp->next = NULL;
 
-    cout << "Successfully removed the loop." << endl;
+    cout << "Successfully removed the loop...   (:" << endl;
 }
 
 int main()
@@ -204,7 +206,7 @@ int main()
 
     // getting starting node of the loop
     Node *loop = getStartingNode(head);
-    cout << "Starting node of cycle is : " << loop->data << endl;
+    cout << "Starting node of cycle is :-> " << loop->data << endl;
 
     // removing loop
     removeLoop(head);

@@ -89,6 +89,7 @@ void print(Node *&head)
     cout << endl;
 }
 
+// using map
 bool detectLoop(Node *&head)
 {
     if (head == NULL)
