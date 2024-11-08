@@ -115,6 +115,9 @@ Node *floydsCycleDetectAlgo(Node *&head)
     return NULL;
 };
 
+// TC O(n)
+// SC O(1)
+
 int main()
 {
 
