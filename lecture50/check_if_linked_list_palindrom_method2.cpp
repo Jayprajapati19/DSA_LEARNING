@@ -2,6 +2,8 @@
 // TC = O(N);
 // SC = O(1);
 
+// this is a optimised solution
+
 class Solution
 {
 public:
