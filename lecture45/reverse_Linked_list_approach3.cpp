@@ -68,6 +68,11 @@ void displayList(Node *head)
     cout << "NULL" << endl;
 }
 
+// Time Complexity -> O(n)
+// Space Complexity -> O()
+
+// 33
+
 int main()
 {
     Node *head = NULL;
@@ -77,7 +82,6 @@ int main()
     insertAtEnd(head, 22);
     insertAtEnd(head, 23);
     insertAtEnd(head, 24);
-    insertAtEnd(head, 25);
 
     cout << "Original List: ";
     displayList(head);
