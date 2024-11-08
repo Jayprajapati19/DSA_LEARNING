@@ -8,6 +8,10 @@
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
  */
+
+// TC O(n)
+// SC O(n)
+
 class Solution
 {
 public:
