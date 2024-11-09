@@ -1,6 +1,28 @@
+
+
+// TC => O(M+N);
+// SC => O(max(M, N));
+
 class Solution
 {
 public:
+    // function to reverse linked list
+    struct Node *reverse(struct Node *head)
+    {
+        Node *prev = NULL;
+        Node *curr = head;
+        Node *nextNode = NULL;
+
+        while (curr != NULL)
+        {
+            nextNode = curr->next;
+            curr->next = prev;
+            prev = curr;
+            curr = nextNode;
+        }
+        return prev;
+    }
+
     // function to insert nodes at tail
     void insertAtTail(struct Node *&head, struct Node *&tail, int data)
     {
@@ -27,56 +49,36 @@ public:
         Node *ansHead = NULL;
         Node *ansTail = NULL;
 
-        while (first != NULL && second != NULL)
+        while (first != NULL || second != NULL || carry != 0)
         {
-            int sum = carry + first->data + second->data;
+            int val1 = 0;
+            if (first != NULL)
+            {
+                val1 = first->data;
+            }
 
+            int val2 = 0;
+            if (second != NULL)
+            {
+                val2 = second->data;
+            }
+
+            int sum = carry + val1 + val2;
             int digit = sum % 10;
 
             // adding nodes to ans
             insertAtTail(ansHead, ansTail, digit);
-
             carry = sum / 10;
 
-            first = first->next;
-            second = second->next;
-        }
+            if (first != NULL)
+            {
+                first = first->next;
+            }
 
-        while (first != NULL)
-        {
-            int sum = carry + first->data;
-            int digit = sum % 10;
-
-            // adding nodes to ans
-            insertAtTail(ansHead, ansTail, digit);
-
-            carry = sum / 10;
-
-            first = first->next;
-        }
-
-        while (second != NULL)
-        {
-            int sum = carry + second->data;
-            int digit = sum % 10;
-
-            // adding nodes to ans
-            insertAtTail(ansHead, ansTail, digit);
-
-            carry = sum / 10;
-
-            second = second->next;
-        }
-
-        while (carry != 0)
-        {
-            int sum = carry;
-            int digit = sum % 10;
-
-            // adding nodes to ans
-            insertAtTail(ansHead, ansTail, digit);
-
-            carry = sum / 10;
+            if (second != NULL)
+            {
+                second = second->next;
+            }
         }
 
         return ansHead;
