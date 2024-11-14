@@ -92,3 +92,5 @@ public:
         return merge(list1, list2);
     }
 };
+
+// IMP: why prefer merge sort in LL and quick sort in array
