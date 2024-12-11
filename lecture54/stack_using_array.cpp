@@ -1,21 +1,17 @@
 #include <iostream>
-#include <stack>
 using namespace std;
 
-class Stack
+class stack
 {
-    // properties
-
 public:
-    int *arr;
     int top;
+    int *arr;
     int size;
 
-    // behavior
-    Stack(int size)
+    stack(int size)
     {
         this->size = size;
-        arr = new int(size);
+        arr = new int[size];
         top = -1;
     }
 
@@ -24,11 +20,12 @@ public:
         if (size - top > 1)
         {
             top++;
+
             arr[top] = element;
         }
         else
         {
-            cout << "stack overflow" << endl;
+            cout << "Stack overflow" << endl;
         }
     }
 
@@ -40,18 +37,19 @@ public:
         }
         else
         {
-            cout << "stack underflow" << endl;
+            cout << "Stack underflow" << endl;
         }
     }
 
     int peek()
     {
-
         if (top >= 0)
+        {
             return arr[top];
+        }
         else
         {
-            cout << "Stack is Empty" << endl;
+            cout << "Stack is empty" << endl;
             return -1;
         }
     }
@@ -72,56 +70,34 @@ public:
 int main()
 {
 
-    Stack st(5);
-    st.push(19);
-    st.push(29);
-    st.push(44);
+    stack st(5);
 
-    cout << st.peek() << endl;
+    st.push(10);
+    st.push(20);
+    st.push(30);
 
-    st.pop();
-
-    cout << st.peek() << endl;
+    cout << "Peak element is : " << st.peek() << endl;
 
     st.pop();
 
-    cout << st.peek() << endl;
+    cout << "Peak element is : " << st.peek() << endl;
+
+    st.pop();
+
+    cout << "Peak element is : " << st.peek() << endl;
 
     st.pop();
 
     cout << st.peek() << endl;
 
     if (st.isEmpty())
-
     {
-        cout << "Stack is empty dost" << endl;
-    }
-
-    /*
-
-    // creation of stack
-
-    stack<int> s;
-
-    // pushh
-    s.push(9);
-    s.push(19);
-
-    // pop
-    s.pop();
-
-    cout << "printing top  element " << s.top() << endl;
-
-    if (s.empty())
-    {
-        cout << "Stack is empty" << endl;
+        cout << "Stack is empty." << endl;
     }
     else
     {
         cout << "Stack is not empty" << endl;
     }
-    cout << "size of stack is " << s.size() << endl;
-    */
 
     return 0;
 }
