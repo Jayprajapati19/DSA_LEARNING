@@ -1,14 +1,12 @@
 #include <iostream>
 #include <stack>
-
-using namespace 0std;
+using namespace std;
 
 int main()
 {
-    string str = "DevJay";
+    string str = "DevJP";
 
     stack<char> s;
-
     for (int i = 0; i < str.length(); i++)
     {
         char ch = str[i];
@@ -16,6 +14,16 @@ int main()
     }
 
     string ans = "";
+
+    while (!s.empty())
+    {
+        char ch = s.top();
+        ans.push_back(ch);
+
+        s.pop();
+    }
+
+    cout << "Answer Is: " << ans << endl;
 
     return 0;
 }
