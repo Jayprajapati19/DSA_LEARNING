@@ -21,6 +21,7 @@ public:
     // Push in stack 1.
     void push1(int num)
     {
+        // atleast a empty space present
         if (top2 - top1 > 1)
         {
             top1++;
