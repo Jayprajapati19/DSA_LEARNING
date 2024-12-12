@@ -1,10 +1,7 @@
 #include <iostream>
-#include <stack>
-#include <vector>
-#include <climits> // For INT_MIN
 using namespace std;
 
-vector<int> nextSmallerElement(vector<int> arr, int n)
+vector<int> nextSmallerElement(int *arr, int n)
 {
     stack<int> s;
     s.push(-1);
@@ -24,7 +21,7 @@ vector<int> nextSmallerElement(vector<int> arr, int n)
     return ans;
 };
 
-vector<int> prevSmallerElement(vector<int> arr, int n)
+vector<int> prevSmallerElement(int *arr, int n)
 {
     stack<int> s;
     s.push(-1);
@@ -44,9 +41,10 @@ vector<int> prevSmallerElement(vector<int> arr, int n)
     return ans;
 };
 
-int largestRectangle(vector<int> &heights)
+int largestRectangle(int *heights, int n)
 {
-    int n = heights.size();
+    // int n = heights.size();
+
     vector<int> next = nextSmallerElement(heights, n);
     vector<int> prev = prevSmallerElement(heights, n);
 
@@ -68,11 +66,30 @@ int largestRectangle(vector<int> &heights)
     return area;
 };
 
+int maxArea(int M[MAX][MAX], int n; int m)
+{
+    // compute area for first row
+    int area = largestRectangle(M[0], m)
+
+        for (int i = 1; i < n; i++)
+    {
+        for (int j = 0; j < m; j++)
+        {
+            // row update: by adding previous row's values
+            if (M[i][j] != 0)
+                M[0] = M[i][j] + M[i - 1][j];
+            else
+                M[i][j] == 0;
+        }
+        // entire row is update now
+        int newArea = largestRectangle(M[i], m);
+        area = max(area, newArea);
+    }
+    return area;
+}
+
 int main()
 {
-    // Test the function with sample data
-    vector<int> heights = {2, 1, 5, 6, 2, 3};
-    cout << "Largest Rectangle Area: " << largestRectangle(heights) << endl;
-
-    return 0;
 }
+
+// O(M)
