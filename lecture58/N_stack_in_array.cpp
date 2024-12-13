@@ -1,4 +1,7 @@
+// most inporttant quetion
+
 #include <bits/stdc++.h>
+
 class NStack
 {
     int *arr;
@@ -91,3 +94,5 @@ public:
         return arr[index];
     }
 };
+
+// stack learning in deeep solve lots of quetions stack using array and linked list , two stack ,delete middle of the stack , inseert element at bottom in given stack, minimum cost to make string is valid, Redundant brackets, reverse stack ising recursion, sort stack, valid parentheses,  next smaller element, N stack in array
